@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        #grad1 {
+  height: 200px;
+  background-color: 
+#81b9f0
+; /* For browsers that do not support gradients */
+  background-image: linear-gradient(to top, 
+#81b9f0
+ , #9de9f5);
+ width: 100%;
+ height: 100%;
+}
+    </style>
+<head>
+    <title>Password Management</title>
+</head>
+<body id="grad1">
+    <h1>Password Management</h1>
+
+    <form id="passwordForm">
+        <label for="website">Website:</label>
+        <input type="text" id="website" name="website" required><br><br>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <input type="submit" value="Save Password">
+    </form>
+
+    <h2>Saved Passwords</h2>
+    <ul id="passwordList">
+        <!-- Saved passwords will be displayed here -->
+    </ul>
+
+    <script>
+        // JavaScript code for handling form submission and displaying saved passwords
+        const passwordForm = document.getElementById("passwordForm");
+        const passwordList = document.getElementById("passwordList");
+
+        passwordForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const website = document.getElementById("website").value;
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Create a new list item to display the saved password
+            const listItem = document.createElement("li");
+            listItem.innerHTML = `<strong>Website:</strong> ${website}<br><strong>Username:</strong> ${username}<br><strong>Password:</strong> ${password}`;
+            passwordList.appendChild(listItem);
+
+            // Clear the form
+            passwordForm.reset();
+        });
+    </script>
+</body>
+</html>
